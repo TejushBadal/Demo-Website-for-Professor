@@ -1,4 +1,5 @@
-# Demo-Website-for-Professor
+# Demo-Website-for-Professor-Bootstrap
+
 
 This is a demo website I created for my professor as a part of my undergraduate student research fellowship for him to demo to clients.
 This is a basic html website that leverages bootstrap with a simple javascript algorithm for the backend. 
