@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Page Demo</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="calculateAsItIs()">
+	<nav class="navbar navbar-expand-md navbar-light fixed-top navbar-bg">
+		<div class="container-fluid">
+            <a class="navbar-brand" href="page1.html">Demo Page</a>
+			<div id="navbarCollapse" class="collapse navbar-collapse">
+				<ul class="navbar-nav me-auto mb-2 mb-md-0">
+					<li class="nav-item">
+						<a class="nav-link" href="">Page 1</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="">Page 2</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="">Page 3</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+                <a class="navbar-brand" href="#">
+                    <img src="images/demo logo.png" width="100" height="100" class="d-inline-block align-top" alt="">
+                </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav><br><br><br>
+    <div id = "userInfoSummary" class="text-center">
+        <h3>User Info:</h3>
+        <strong>Name:</strong> <span id="first">...</span> <span id="second">...</span>
+        <strong>Address:</strong> <span id="third">...</span> <span id="fifth">...</span>
+        <strong>Number:</strong> <span id="fourth">...</span><br><br>
+    </div>
+    <script>
+    document.getElementById("first").innerHTML=sessionStorage.getItem("firstName");
+    document.getElementById("second").innerHTML=sessionStorage.getItem("lastName");
+    document.getElementById("third").innerHTML=sessionStorage.getItem("adress");
+    document.getElementById("fourth").innerHTML=sessionStorage.getItem("number");
+    document.getElementById("fifth").innerHTML=sessionStorage.getItem("postal");
+    </script>
+    <div class="row d-flex justify-content-center">
+        <table class="table table-bordered table-info w-auto text-center">
+            <tr>
+                <th colspan="2"><strong>As-It is</strong></th>
+            </tr>
+            <tr>
+                <td>Total Water Usage (m<sup>3</sup>/day)</td>
+                <td><span id="totalWater">--</span></td>
+            </tr>
+            <tr>
+                <td>Cost Per Volume ($/m<sup>3</sup>)</td>
+                <td><span id="costPerVolume">--</span></td>
+            </tr>
+            <tr>
+                <td>Cost Per Day ($/m<sup>3</sup>/day)</td>
+                <td><span id="costPerDay">--</span></td>
+            </tr>
+            <tr>
+                <td>Cost Per Year ($/year)</td>
+                <td><span id="costPerYear">--</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="text-center">
+        <h3>Which Scenario?</h3>
+    </div>
+    <div class="d-flex justify-content-center">
+        <style>
+            .btn-space {
+                 margin-right: 5px;
+                 margin-left: 5px;
+            }
+        </style>
+        <button class="btn btn-primary btn-space" id="scenario1" onclick="scenario1()">Scenario 1</button>
+        <button class="btn btn-primary" id="scenario2" onclick="scenario2()">Scenario 2</button>
+        <button class="btn btn-primary btn-space" id="both" onclick="both()">Show Both</button>
+    </div>
+    <br><br>
+    <div class="row d-flex justify-content-center">
+        <style>
+            .table-space {
+                 margin-right: 5px;
+            }
+        </style>
+        <table class="table table-bordered table-warning w-auto text-center table-space" id="scenario1table">
+            <tr>
+                <th colspan="2"><strong>Residual From Washroom and kitchen to Toilets</strong></th>
+            </tr>
+            <tr>
+                <td>Total Water Recycled (m<sup>3</sup>/day)</td>
+                <td><span id="totalWaterRecycledS1">--</span></td>
+            </tr>
+            <tr>
+                <td>Total Water Usage (m<sup>3</sup>/day)</td>
+                <td><span id="totalWaterS1">--</span></td>
+            </tr>
+            <tr>
+                <td>Cost Per Volume ($/m<sup>3</sup>)</td>
+                <td><span id="costPerVolumeS1">--</span></td>
+            </tr>
+            <tr>
+                <td>Cost Per Day ($/m<sup>3</sup>/day)</td>
+                <td><span id="costPerDayS1">--</span></td>
+            </tr>
+            <tr>
+                <td>Cost Per Year ($/year)</td>
+                <td><span id="costPerYearS1">--</span></td>
+            </tr>
+            <tr>
+                <td>Savings From City Cost Per Year ($/year)</td>
+                <td><span id="savingsFromCityCostPerYearS1">--</span></td>
+            </tr>
+            <tr>
+                <td>Pay back (year)</td>
+                <td><span id="paybackS1">--</span></td>
+            </tr>
+        </table>
+
+        <table class="table table-bordered table-warning w-auto text-center" id="scenario2table">
+            <tr>
+                <th colspan="2"><strong>Residual From Washroom and kitchen + Rainwater to Toilets</strong></th>
+            </tr>
+            <tr>
+                <td>Total Water Recycled (m<sup>3</sup>/day)</td>
+                <td><span id="totalWaterRecycledS2">--</span></td>
+            </tr>
+            <tr>
+                <td>Total Water Usage (m<sup>3</sup>/day)</td>
+                <td><span id="totalWaterS2">--</span></td>
+            </tr>
+            <tr>
+                <td>Cost Per Volume ($/m<sup>3</sup>)</td>
+                <td><span id="costPerVolumeS2">--</span></td>
+            </tr>
+            <tr>
+                <td>Cost Per Day ($/m<sup>3</sup>/day)</td>
+                <td><span id="costPerDayS2">--</span></td>
+            </tr>
+            <tr>
+                <td>Cost Per Year ($/year)</td>
+                <td><span id="costPerYearS2">--</span></td>
+            </tr>
+            <tr>
+                <td>Savings From City Cost Per Year ($/year)</td>
+                <td><span id="savingsFromCityCostPerYearS2">--</span></td>
+            </tr>
+            <tr>
+                <td>Pay back (year)</td>
+                <td><span id="paybackS2">--</span></td>
+            </tr>
+        </table>
+    </div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous">
+    </script>
+	<script src="backend.js"></script>
+</body>
+
+</html>
